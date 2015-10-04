@@ -12,8 +12,6 @@ Initializr is a project boilerplate based on the Twitter Bootstrap version of [H
 
 - Type `gulp` and start developing
 
-To contribute, fork the repo and submit any fixes or enhancements in a pull request. 
-
 #### Changelog
 
 **v1.0.0**
