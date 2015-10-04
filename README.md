@@ -3,7 +3,7 @@
 **Usage**
 
 - Install gulp globally:
-  - `npm install --global gulp`
+  - `npm install -g gulp`
 
 - Install dependencies:
   - `npm install`
