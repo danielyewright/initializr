@@ -1,4 +1,4 @@
-## Using Gulp, SASS and Browser-Sync for your front end web development
+### Using Gulp, SASS and Browser-Sync for your front end web development
 
 **Usage**
 
