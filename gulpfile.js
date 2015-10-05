@@ -28,11 +28,11 @@ var reload = browserSync.reload;
 
 /* Scripts task */
 gulp.task('scripts', function() {
-  return gulp.src([
-    /* Add your JS files here, they will be combined in this order */
-    'assets/js/vendor/jquery-1.11.2.min.js',
-    'assets/js/plugins.js',
-    'assets/js/global.js'
+    return gulp.src([
+        /* Add your JS files here, they will be combined in this order */
+        'assets/js/vendor/jquery-1.11.2.min.js',
+        'assets/js/plugins.js',
+        'assets/js/global.js'
     ])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('assets/js'))
