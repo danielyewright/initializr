@@ -1,16 +1,6 @@
 /*
 Using Gulp, SASS and Browser-Sync for your front end web development
 http://danielyewright.com/blog/gulp-sass-browser-sync-front-end-dev
-
-Steps:
-
-1. Install gulp globally:
-npm install --global gulp
-
-2. Install dependencies:
-npm instal
-
-5. Type 'Gulp' and start developing
 */
 
 /* Needed gulp config */
