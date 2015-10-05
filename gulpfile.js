@@ -56,10 +56,12 @@ gulp.task('sass', function () {
 
 gulp.task('jade', function() {
     return gulp.src('templates/**/*.jade')
+        // pipe to jade plugin
         .pipe(jade({
             pretty: true
-        })) // pipe to jade plugin
-        .pipe(gulp.dest('./')); // tell gulp our output folder
+        }))
+        // tell gulp our output folder
+        .pipe(gulp.dest('./'));
 });
 
 /* Reload task */
@@ -82,7 +84,7 @@ gulp.task('default', ['sass', 'jade', 'browser-sync'], function () {
     gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss'], ['sass'])
     /* Watch .js files, run the scripts task on change. */
     gulp.watch(['assets/js/*.js'], ['scripts'])
-    /* Watch .html files, run the bs-reload task on change. */
+    /* Watch .jade files, run the bs-reload task on change. */
     // gulp.watch(['*.html'], ['bs-reload']);
-    gulp.watch(['templates/*.jade'], ['jade']);
+    gulp.watch(['templates/*.jade'], ['jade', 'bs-reload']);
 });
