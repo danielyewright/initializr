@@ -17,6 +17,7 @@ npm instal
 var gulp = require('gulp');  
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+var jade = require('gulp-jade');
 var rename = require('gulp-rename');
 var notify = require('gulp-notify');
 var minifycss = require('gulp-minify-css');
@@ -53,6 +54,14 @@ gulp.task('sass', function () {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('jade', function() {
+    return gulp.src('templates/**/*.jade')
+        .pipe(jade({
+            pretty: true
+        })) // pipe to jade plugin
+        .pipe(gulp.dest('./')); // tell gulp our output folder
+});
+
 /* Reload task */
 gulp.task('bs-reload', function () {
     browserSync.reload();
@@ -60,7 +69,7 @@ gulp.task('bs-reload', function () {
 
 /* Prepare Browser-sync for localhost */
 gulp.task('browser-sync', function() {
-    browserSync.init(['assets/css/*.css', 'assets/js/*.js'], {
+    browserSync.init(['assets/css/*.css', 'assets/js/*.js', 'templates/*.jade'], {
         server: {
             baseDir: './'
         }
@@ -68,11 +77,12 @@ gulp.task('browser-sync', function() {
 });
 
 /* Watch scss, js and html files, doing different things with each. */
-gulp.task('default', ['sass', 'browser-sync'], function () {
+gulp.task('default', ['sass', 'jade', 'browser-sync'], function () {
     /* Watch scss, run the sass task on change. */
     gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss'], ['sass'])
     /* Watch .js files, run the scripts task on change. */
     gulp.watch(['assets/js/*.js'], ['scripts'])
     /* Watch .html files, run the bs-reload task on change. */
-    gulp.watch(['*.html'], ['bs-reload']);
+    // gulp.watch(['*.html'], ['bs-reload']);
+    gulp.watch(['templates/*.jade'], ['jade']);
 });
